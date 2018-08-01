@@ -14,11 +14,11 @@ export default class About extends Component {
 
     autoBind(this);
   }
-
+ 
   render() {
 
     return (
-        <div>About (it changed for Jim)</div>
+        <div>About (it changed)</div>
     );
   }
 

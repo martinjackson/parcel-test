@@ -5,15 +5,17 @@
   "dependencies": {
     "babel-watch": "^2.0.6",
     "body-parser": "^1.16.0",
-    "express": "^4.14.0"
+    "cross-env": "^5.2.0",
+    "express": "^4.14.0",
+    "opn": "^5.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
-    "babel-watch": "^2.0.6",
-    "nodemon": "^1.17.5"
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-watch": "^2.0.6"
   },
   "scripts": {
-    "run:server": "babel-watch server.js",
-    "run:prod": "babel-node server.js"
+    "start": "cross-env NODE_ENV=development npx babel-watch server.js",
+    "prod":  "cross-env NODE_ENV=production  npx babel-node  server.js",
   }
 }

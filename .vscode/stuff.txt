@@ -1,0 +1,6 @@
+,
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Building...", 
+                    "endsPattern": "√  Built in "                    
+                }

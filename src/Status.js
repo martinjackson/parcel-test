@@ -32,6 +32,24 @@ export default class Status extends Component {
         .catch((error) => {   this.setState({'error': error.message}); });
   }
 
+  simBug() {
+    const message = 'Bumb luck',
+          row = 15,
+          col = 3
+
+    const url = `/api/bug/${message}/${row}/${col}`
+    axios.get(url)
+      .then((response) => { this.setState({url}); this.loaded(); })
+      .catch((error) => {   this.setState({'error': error.message}); });
+  }
+
+  simNoBug() {
+    const url = '/api/nobug/'
+    axios.get(url)
+      .then((response) => { this.setState({url}); this.loaded(); })
+      .catch((error) => {   this.setState({'error': error.message}); });
+  }
+
   loaded() {
     console.log(this.state.url, 'loaded.');
   }
@@ -54,11 +72,16 @@ export default class Status extends Component {
     const err = this.state.error ? <Row><hr />{this.state.error}</Row> : null
     const reload = <button onClick={this.loadInfo}>Update</button>
 
+    const bug = <button onClick={this.simBug}>Bug</button>
+    const nobug = <button onClick={this.simNoBug}>No Bug</button>
+
     return (
       <Grid fluid>
          { this.columns('API request:', <span>{this.state.url}</span>) }
          { this.columns('returned:', <DisplayObjAsTable obj={this.state.data} />) }
          { this.columns(reload) }
+         { this.columns(bug) }
+         { this.columns(nobug) }
          {err}
       </Grid>
     );
