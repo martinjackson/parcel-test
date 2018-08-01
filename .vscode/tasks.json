@@ -5,17 +5,16 @@
     "tasks": [
         {
             "type": "npm",
-            "script": "build:front-end",
-            "problemMatcher": [
-                "$go"
-            ]
+            "script": "start",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "type": "npm",
-            "script": "build:back-end",
-            "problemMatcher": [
-                "$go"
-            ]
+            "script": "setup",
+            "problemMatcher": []
         }
     ]
 }

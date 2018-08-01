@@ -18,7 +18,7 @@ export default class About extends Component {
   render() {
 
     return (
-        <div>About (it changed)</div>
+        <div>About (it changed for Jim)</div>
     );
   }
 
