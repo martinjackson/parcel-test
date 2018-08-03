@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-core": "^6.26.3",
     "babel-watch": "^2.0.6",
     "body-parser": "^1.16.0",
     "cross-env": "^5.2.0",
@@ -16,6 +17,6 @@
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development npx babel-watch server.js",
-    "prod":  "cross-env NODE_ENV=production  npx babel-node  server.js",
+    "prod": "cross-env NODE_ENV=production  npx babel-node  server.js"
   }
 }
