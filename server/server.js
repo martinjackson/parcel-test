@@ -49,34 +49,6 @@ app.get('/api/echo/:name', function (req, res) {
   res.end( JSON.stringify(stuff) );
 });
 
-// -----------------------------------------------------------------------------
-//    Fake parcel compile error messages to test VS Code task runner regex
-// -----------------------------------------------------------------------------
-
-app.get('/api/bug/:message/:row/:col', function (req, res) {
-  const now = new Date();
-  const date = {y: now.getFullYear(), m: now.getMonth()+1, d:now.getDate()}
-  const stuff = {name: req.params.message, host: req.headers.host, date};
-
-  res.writeHead(200, {'Content-Type': 'application/json'});
-  res.end( JSON.stringify({name: 'bug reported'}) );
-
-  const {message, row, col} = req.params;
-  console.log("- Building...");
-  console.log(`×  c:\\projects\\parcel-test\\src\\About.js:${row}:${col}: ${message} (${row}:${col})`);
-  // console.log("×  c:\\projects\\parcel-test\\src\\About.js:18:6: Unexpected token (18:6)");
-  // console.log("×  /c/projects/parcel-test/src/About.js:32:4: Unexpected token (32:4)");
-
-});
-
-app.get('/api/nobug/', function (req, res) {
-  res.writeHead(200, {'Content-Type': 'application/json'});
-  res.end( JSON.stringify({name: 'no bug'}) );
-
-  console.log("- Building...");
-  console.log("√  Built in 5.91s.    <-- fake");
-  
-});
 
 // -----------------------------------------------------------------------------
 //  Hot Loader (if in development mode)
@@ -84,5 +56,10 @@ app.get('/api/nobug/', function (req, res) {
 // -----------------------------------------------------------------------------
 
 if (process.env.NODE_ENV !== 'production') {
-  app.use(parcelHot(port));
+  app.use(parcelHot(port, '../src/index.js', {outDir: './public'}));
 }
+
+
+app.all('*', function(req, res) {
+  res.redirect("/");               // react-route-menu will have urls that dont exists redirect to / for Single Page App
+});

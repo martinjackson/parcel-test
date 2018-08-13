@@ -1,39 +1,31 @@
 require("babel-core/register");
 require("babel-polyfill");
 
-module.exports = function parcelHot(port) {
+const opn = require('opn');
+const Bundler = require('parcel-bundler');
 
-  const file = '../src/index.js'; // Pass an absolute path to the entrypoint here
-  const options = {      // See options section of api docs, for the possibilities
-  outDir: './public',
-  // defaults when process.env.NODE_ENV !== 'production'
-  //
-  // watch: true,      //  whether to watch the files and rebuild them on change
-  // cache: true,      // Enabled or disables caching, defaults to true
-  }; 
 
-  const Bundler = require('parcel-bundler');
+const openInBrowser = async (url, browser) => {
+  try {
+    const options = typeof browser === 'string' ? {app: browser} : undefined;
 
-  // Initialize a new bundler using a file and options
+    await opn(url, options);
+  } catch (err) {
+    console.error(`Unexpected error while opening in browser: ${browser}`);
+    console.error(err);
+  }
+}
+
+// How To Use:
+//    app.use(parseHot(port, '../src/index.js', {outDir: './public'}));
+
+module.exports = function parcelHot(port, file='../src/index.js', options={outDir: './public'}) {
+
   const bundler = new Bundler(file, options);
 
-  console.log("Parcel Bundler activated.");
+  bundler.once('buildEnd', ()=> {  
+    openInBrowser(`http://localhost:${port}`);  
+  });
 
-  const opn = require('opn');
-  const openInBrowser = async (url, browser) => {
-    try {
-      const options = typeof browser === 'string' ? {app: browser} : undefined;
-
-      await opn(url, options);
-    } catch (err) {
-      console.error(`Unexpected error while opening in browser: ${browser}`);
-      console.error(err);
-    }
-  }
-
-  openInBrowser(`http://localhost:${port}`);
-
-  // pass Parcel all other requests over your express server
   return bundler.middleware()
 }
-  // How To Use:   app.use(parseHot(port));
