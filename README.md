@@ -1,3 +1,13 @@
+[DEPRECATED] Research Only -- 
+Please consider using [create-simple-react](https://www.npmjs.com/package/simple-react-app) instead. 
+
+```bash
+npm init simple-react
+```
+
+This project remains for research purposes only. 
+
+Martin Jackson <martin.a.jackson@gmail.com>
 
 # Parcel Test: ParcelBundler, React Front End, Node API Back End
 
