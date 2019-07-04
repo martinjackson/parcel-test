@@ -1,0 +1,40 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - parcel-bundler > htmlnano > uncss > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - antd > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - antd > rc-table > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - antd > rc-tabs > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - parcel-bundler > @babel/core > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - antd > rc-form > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - antd > rc-editor-mention > rc-editor-core > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - parcel-bundler > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - antd > rc-steps > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - parcel-bundler > babylon-walk > babel-types > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - parcel-bundler > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/types > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - parcel-bundler > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/types > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - parcel-bundler > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-annotate-as-pure > @babel/types > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - parcel-bundler > htmlnano > uncss > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - parcel-bundler > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - parcel-bundler > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
+    - parcel-bundler > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T05:51:00.595Z'
